@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('path/to/background-image.jpg') center/cover no-repeat; /* Background image */
+            background-color: #00FFFF;
+            color: #000000; /* White */
+        }
+
+        header {
+            background-color: #3aa0a8; /* Teal Green */
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: rgb(105, 204, 7);
+            padding: 30px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color:#ffd700;
+            padding: 30px;
+        }
+
+        h3{
+            font-size: 1.5em;
+            color:#000000;
+            padding: 30px;
+        }
+
+        p1 {
+            line-height: 1.6;
+            color: rgb(255, 255, 255);
+            padding: 30px;
+        }
+
+        p2 {
+            line-height: 1.4;
+            color: rgb(0, 0, 0);
+            padding: 30px;
+        }
+
+        footer {
+            background-color: #ffffff; /* White */
+            color: #3aa0a8; /* Teal Green */
+            padding: 10px;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: #3aa0a8; /* Teal Green */
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin: 0 10px; /* Adjust the margin to add space between icons */
+        }
+
+        .social-icons a:hover {
+            color: #ffd700; /* Golden Yellow */
+        }
+
+        .menu {
+            background-color: #fff; /* White background */
+            border-bottom: 2px solid #c300ff; /* Black demarcation */
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .menu a {
+            color: #000; /* Black text */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+            padding: 10px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu a:hover {
+            color: #00FFFF; /* Cyan on hover */
+        }
+
+        .menu a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #3aa0a8; /* Teal Green */
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: bottom left;
+            transition: transform 0.3s ease;
+        }
+
+        .menu a:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom right;
+        }
+
+        .content {
+            background-color: #000; /* Black background for content */
+            padding: 20px;
+        }
+
+        .portfolio-menu {
+            background-color: rgba(139, 58, 218, 0.8); /* Purple with 80% opacity */
+            border: 30px solid #ffffff; /* White border */
+            border-radius: 30px;
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            margin-bottom: 20px;
+        
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns */
+            gap: 10px;
+            background-color: rgba(139, 58, 218, 0.8); /* Purple with 80% opacity */
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .project {
+            border: 30px solid #ffffff; /* White */
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .project h3 {
+            margin-bottom: 10px;
+        }
+
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: url('path/to/your-image.jpg') center/cover no-repeat; /* Replace with your image path */
+            padding: 20px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 500px;
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            padding: 20px;
+            border: 2px solid #3aa0a8; /* Teal Green border */
+            border-radius: 5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content p {
+            color: #000;
+            line-height: 1.6;
+        }
+
+        .call-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background: linear-gradient(to right, #8B3ADA, #3aa0a8); /* Purple gradient */
+            color: #fff; /* White text */
+            text-decoration: none;
+            border: 5px solid #fff; /* White border */
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .call-button:hover {
+            background: linear-gradient(to right, #3aa0a8, #8B3ADA); /* Reverse gradient on hover */
+        }
+
+        .hero-image {
+            width: 300px;
+            height: 300px; /* Equalize the height */
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: 10px; /* Adjust the margin for spacing */
+            padding-right: 20px;
+            margin-left: -10px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#advanced-tech">Advanced Technologies</a>
+        <a href="#ai-assistant">AI Assistant</a>
+        <a href="#software-dev">Software Development</a>
+        <a href="#software-deploy">Software Deployment</a>
+    </div>
+
+    <header>
+        <p style="color: #ffd700; font-weight: bold; font-size: 1.6em;">SOFTWARE DEVELOPMENT LIFECYCLE (SDLC)</p>
+        <p2>SDLC consists of various phases, such as planning, design, coding, testing, and deployment, 
+            while STLC has different phases, such as test planning, test case development, test execution, and test closure.</p2>
+    </header>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h2>Who is a Software Engineer/Developer?</h2>
+            <p>Software engineers and developers are often specialists in creating and developing web, mobile, and software applications that perform tasks on specific devices like computers and mobile devices. 
+                They also work on networks, databases, and operating systems using a variety of programming languages.</p>
+            <a href="tel:your-phone-number" class="call-button">Get AI Assistance</a>
+        </div>
+
+        <div class="hero-image">
+            <!-- Replace the image path with your image -->
+            <img src="R.jpg" alt="Information Technology Assistant">
+        </div>
+    </div>
+
+    <section>
+        <h2>Software QA</h2>
+        <p>Software Quality Assurance (QA) is a crucial aspect of the software development process, focused on ensuring the delivery of high-quality and reliable software products.
+            It encompasses a systematic approach to quality management, including the planning, implementation, and monitoring of processes to prevent defects and enhance overall product quality. <br><br>
+            
+            In the realm of Software QA, dedicated professionals employ a variety of testing methodologies, such as functional testing, performance testing, and security testing, to validate
+            that the software meets specified requirements and performs optimally. QA teams collaborate closely with developers, product managers, and other stakeholders to identify
+            potential issues early in the development lifecycle, facilitating efficient and cost-effective problem resolution. <br><br>
+            
+            Continuous improvement is at the core of Software QA, as practitioners continually refine testing strategies, adopt new tools and technologies, and stay abreast of industry best practices. 
+            By upholding rigorous quality standards, Software QA contributes to the creation of robust, user-friendly, and reliable software solutions that meet the expectations
+            of end-users and contribute to the success of software projects. <br><br>
+            
+            In essence, Software QA is not just about finding and fixing bugs; it's a comprehensive approach to building software that prioritizes quality at every stage of the development process,
+            ultimately ensuring a positive user experience and the success of software applications in the ever-evolving digital landscape.</p>
+
+            <h3>How Do You Optimise Software Engineering/Developement?</h3>
+            <p>Readability saves time in the long run!
+                As developers, we tend to spend more time reading code rather than writing it. 
+                Whether we are reading documentation, reviewing someone else’s work, or checking our own, code readability will increase our productivity over brevity. </p>
+
+                <h1>WHY TECHNOLOGY?</h1>
+                    <p>Requirements:</p>
+                    <ul>
+                    <li>Workstation</li>
+                    <li>Super Computer</li>
+                    <li>Clean Desk Policy</li>
+                    <li>Reliable Internet Connectivity</li>
+                    <li>Dynamic Technical Knowledge</li>
+                    <li>Storage Back-Up</li>
+                    </ul>           
+    </section>
+
+    <section>
+        <h2>Portfolio</h2>
+        <div class="project-grid">
+            <div class="project">
+                <h3>Artificial Intelligence</h3>
+                <p1>Artificial intelligence is the simulation of human intelligence processes by machines, 
+                    especially computer systems. Specific applications of AI include expert systems, 
+                    natural language processing, speech recognition and machine vision.</p1>
+            </div>
+            <div class="project">
+                <h3>Virtual Reality</h3>
+                <p1>Virtual reality (VR) is a simulated experience that employs pose tracking 
+                    and 3D near-eye displays to give the user an immersive feel of a virtual world.</p1>
+            </div>
+            <div class="project">
+                <h3>Augmented Reality</h3>
+                <p1>Augmented reality is an interactive experience that enhances the real world with computer-generated perceptual information. 
+                    Using software, apps, and hardware such as AR glasses, augmented reality overlays digital content onto real-life environments and objects.</p1>
+            </div>
+            <div class="project">
+                <h3>Internet of Things</h3>
+                <p1>The Internet of Things (IoT) describes the network of physical objects—“things”—that are embedded with sensors, 
+                    software, and other technologies 
+                    for the purpose of connecting and exchanging data with other devices and systems over the internet.</p1>
+            </div>
+            <div class="project">
+                <h3>Cyber Security</h3>
+                <p1>Cyber security is the application of technologies, processes, and controls to protect systems, 
+                    networks, programs, devices and data from cyber attacks. It aims to reduce the risk of 
+                    cyber attacks and protect against the unauthorised exploitation of systems, networks, and technologies.</p1>
+            </div>
+            <div class="project">
+                <h3>Smart Devices</h3>
+                <p1>A smart device is an electronic device, generally connected to other devices or networks via 
+                    different wireless protocols that can operate to some extent interactively and autonomously.</p1>
+            </div>
+            
+            <div class="project">
+                <h3>Embedded Systems</h3>
+                <p1>An embedded system is a combination of computer hardware and software designed 
+                    for a specific function. Embedded systems may also function within a larger system. 
+                    The systems can be programmable or have a fixed functionality.</p1>
+            </div>
+            <!-- Add more projects as needed -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#" target="_blank" title="YouTube"><img src="youtube.png" alt="YouTube Icon" style="width: 30px;"></a>
+            <a href="#" target="_blank" title="Twitter"><img src="x.png" alt="X Icon" style="width: 30px;"></a>
+            <a href="#" target="_blank" title="Facebook"><img src="facebook.png" alt="Facebook Icon" style="width: 30px;"></a>
+            <a href="#" target="_blank" title="TikTok"><img src="tiktok.jpg" alt="TikTok Icon" style="width: 40px;"></a>
+            <a href="#" target="_blank" title="WhatsApp"><img src="whatsapp.png" alt="WhatsApp Icon" style="width: 30px;"></a>
+        </div>
+        <p>Contact: laurent.mboya@gmail.com</p>
+    </footer>
+
+</body>
+</html>
